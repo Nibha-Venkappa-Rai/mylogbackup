@@ -8,7 +8,7 @@ BKP_LOG="/bkp"
 
 S3_BUCKET=myappec2
 
-#THRESHOLD_MB=1
+THRESHOLD_MB=1
 
 #Creating the backup directory
 mkdir -p $BKP_LOG
@@ -32,12 +32,11 @@ fi
 #Pushing to s3 bucket
 aws s3 cp $ARCHIVE s3://$S3_BUCKET/
 
-
 #Also, to installe cronjob utility
 
-sudo yum install cronie -y
-sudo systemctl enable crond
-sudo systemctl start crond
+#sudo yum install cronie -y
+#sudo systemctl enable crond
+#sudo systemctl start crond
 
 #cron job creation in console (command to create cron job: crontab -e)
 # * * * * * sudo ./log_bkp.sh
